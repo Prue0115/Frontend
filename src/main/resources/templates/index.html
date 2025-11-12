@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>BookFront</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header>
+    <div class="logo">📚 BookFront</div>
+    <nav>
+        <ul>
+            <li><a href="#">회원가입</a></li>
+            <li><a href="#">로그인</a></li>
+            <li><a href="#">좌석 예약</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="home-container">
+    <h2 class="slogan">메인 글</h2>
+
+    <div class="search-section">
+        <div class="search-bar-large">
+            <input type="text" placeholder="검색어를 입력해 주세요">
+            <button class="btn-icon">🌐</button>
+            <button class="btn-search">🔍</button>
+        </div>
+
+        <div class="advanced-link-left">
+            <a href="#" id="openModal">🔍 고급검색</a>
+        </div>
+    </div>
+
+    <div class="notice-box">
+        <div class="notice-date">
+            <span class="icon">🕒</span>
+            <strong>11월 13일 (목)</strong>
+        </div>
+        <div class="notice-text">
+            테스트 중입니다. <span>09:00~계속 진행 중</span>
+            <small>(테스트 중입니다.)</small>
+        </div>
+        <div class="holiday">
+            <button>11월 개발중</button>
+            <span>13</span><span>24</span>
+        </div>
+    </div>
+</main>
+
+<footer>© 2025 BookFront. All rights reserved.</footer>
+
+<!-- 🌗 테마 전환 버튼 -->
+<div class="theme-toggle">
+    <button id="lightMode">☀️</button>
+    <button id="systemMode">🖥</button>
+    <button id="darkMode">🌙</button>
+</div>
+
+<!-- 고급검색 모달 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <h2>고급검색</h2>
+        <p>도서, 논문, 고문헌 등을 세부 조건으로 검색할 수 있습니다.</p>
+
+        <form class="advanced-form">
+            <label>제목(부분일치)</label>
+            <input type="text">
+
+            <label>저자</label>
+            <input type="text">
+
+            <label>발행자</label>
+            <input type="text">
+
+            <label>키워드</label>
+            <input type="text">
+
+            <div class="modal-buttons">
+                <button type="reset" class="reset">초기화</button>
+                <button type="submit" class="search">검색</button>
+                <button type="button" id="closeModal2" class="close-btn">닫기</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script th:src="@{/js/script.js}"></script>
+</body>
+</html>
