@@ -9,5 +9,5 @@ public class HomeController {
     @GetMapping("/")
     public String home() {
         return "index"; // templates/index.html 로 연결
-    }
+    } //2025-11-13
 }
