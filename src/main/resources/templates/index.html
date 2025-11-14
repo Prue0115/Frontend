@@ -2,90 +2,148 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>BookFront</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>BookFront | 국립중앙도서관 참고형 메인</title>
+    <link rel="stylesheet" th:href="@{/css/base.css}">
+    <link rel="stylesheet" th:href="@{/css/search.css}">
+    <link rel="stylesheet" th:href="@{/css/notice.css}">
 </head>
 <body>
-<header>
-    <div class="logo">📚 BookFront</div>
-    <nav>
-        <ul>
-            <li><a href="#">회원가입</a></li>
-            <li><a href="#">로그인</a></li>
-            <li><a href="#">좌석 예약</a></li>
-        </ul>
-    </nav>
-</header>
-
-<main class="home-container">
-    <h2 class="slogan">메인 글</h2>
-
-    <div class="search-section">
-        <div class="search-bar-large">
-            <input type="text" placeholder="검색어를 입력해 주세요">
-            <button class="btn-icon">🌐</button>
-            <button class="btn-search">🔍</button>
-        </div>
-
-        <div class="advanced-link-left">
-            <a href="#" id="openModal">🔍 고급검색</a>
+    <div class="top-bar">
+        <div class="top-wrapper">
+            <ul class="top-links">
+                <li><a href="#">어린이도서관</a></li>
+                <li><a href="#">디지털도서관</a></li>
+                <li><a href="#">도서관 소개</a></li>
+                <li><a href="#">사이트맵</a></li>
+                <li><a href="#">English</a></li>
+            </ul>
+            <ul class="member-links">
+                <li><a href="#">회원가입</a></li>
+                <li><a href="#">로그인</a></li>
+            </ul>
         </div>
     </div>
 
-    <div class="notice-box">
-        <div class="notice-date">
-            <span class="icon">🕒</span>
-            <strong>11월 13일 (목)</strong>
+    <header class="global-header">
+        <div class="header-wrapper">
+            <div class="logo" aria-label="BookFront 메인으로 이동">📚 BookFront</div>
+            <nav aria-label="주요 서비스">
+                <ul class="main-nav">
+                    <li><a href="#search">자료검색</a></li>
+                    <li><a href="#notices">공지사항</a></li>
+                </ul>
+            </nav>
         </div>
-        <div class="notice-text">
-            테스트 중입니다. <span>09:00~계속 진행 중</span>
-            <small>(테스트 중입니다.)</small>
-        </div>
-        <div class="holiday">
-            <button>11월 개발중</button>
-            <span>13</span><span>24</span>
-        </div>
-    </div>
-</main>
+    </header>
 
-<footer>© 2025 BookFront. All rights reserved.</footer>
+    <main>
+        <section class="hero" id="search">
+            <div class="hero-inner">
+                <div class="hero-copy">
+                    <p class="badge">국립중앙도서관 참고 레이아웃</p>
+                    <h1>필요한 자료를 빠르게 찾고 고급검색으로 바로 이동하세요</h1>
+                    <p class="subtitle">통합 검색창에서 도서·논문·멀티미디어까지 한번에 확인할 수 있습니다.</p>
+                </div>
 
-<!-- 🌗 테마 전환 버튼 -->
-<div class="theme-toggle">
-    <button id="lightMode">☀️</button>
-    <button id="systemMode">🖥</button>
-    <button id="darkMode">🌙</button>
-</div>
-
-<!-- 고급검색 모달 -->
-<div id="searchModal" class="modal">
-    <div class="modal-content">
-        <span class="close" id="closeModal">&times;</span>
-        <h2>고급검색</h2>
-        <p>도서, 논문, 고문헌 등을 세부 조건으로 검색할 수 있습니다.</p>
-
-        <form class="advanced-form">
-            <label>제목(부분일치)</label>
-            <input type="text">
-
-            <label>저자</label>
-            <input type="text">
-
-            <label>발행자</label>
-            <input type="text">
-
-            <label>키워드</label>
-            <input type="text">
-
-            <div class="modal-buttons">
-                <button type="reset" class="reset">초기화</button>
-                <button type="submit" class="search">검색</button>
-                <button type="button" id="closeModal2" class="close-btn">닫기</button>
+                <div class="search-panel" role="search">
+                    <header>
+                        <h2>통합자료검색</h2>
+                        <span>검색, 고급검색 영역만 남겼습니다.</span>
+                    </header>
+                    <form class="search-form" action="#" method="get">
+                        <label for="mainSearchInput" class="sr-only">검색어 입력</label>
+                        <input id="mainSearchInput" type="text" placeholder="도서, 논문, 고문헌을 통합 검색">
+                        <div class="search-actions">
+                            <button type="button" class="advanced-btn" id="openModal" aria-haspopup="dialog">고급검색</button>
+                            <button type="submit" class="search-submit">검색</button>
+                        </div>
+                    </form>
+                    <div class="search-meta">
+                        <span><strong>TIP</strong> 원하는 조건을 더 세밀하게 찾을 땐 고급검색을 이용하세요.</span>
+                        <span>최근 검색어: 디지털 아카이브, 한글 자료집</span>
+                    </div>
+                </div>
             </div>
-        </form>
-    </div>
-</div>
+        </section>
 
-<script th:src="@{/js/script.js}"></script>
+        <section class="notice-section" id="notices" aria-label="공지사항">
+            <article class="notice-card">
+                <header>
+                    <h2>공지사항</h2>
+                    <a href="#">전체보기</a>
+                </header>
+
+                <div class="featured-notice">
+                    <div class="notice-meta">
+                        <span class="notice-icon" aria-hidden="true">📢</span>
+                        <div>
+                            <strong>11월 15일 (토) 도서관 운영 안내</strong>
+                            <p>도서관 운영시간 09:00~18:00 · 야간 도서관 매주 수요일 18:00~21:00</p>
+                        </div>
+                    </div>
+                    <div class="notice-actions">
+                        <a href="#" class="notice-chip">11월 휴관일</a>
+                        <div class="notice-stats" aria-label="11월 휴관일 안내">
+                            <span><strong>10</strong>일</span>
+                            <span><strong>24</strong>일</span>
+                        </div>
+                    </div>
+                </div>
+
+                <ul class="notice-list">
+                    <li>
+                        <time datetime="2024-11-10">2024.11.10</time>
+                        <a href="#">11월 10일 휴관: 장서 점검으로 전관 휴관합니다.</a>
+                    </li>
+                    <li>
+                        <time datetime="2024-11-15">2024.11.15</time>
+                        <a href="#">11월 15일 운영: 자료 열람실 및 어린이도서관 정상 운영.</a>
+                    </li>
+                    <li>
+                        <time datetime="2024-11-24">2024.11.24</time>
+                        <a href="#">11월 24일 휴관: 설비 점검으로 전자자료 서비스만 제공.</a>
+                    </li>
+                </ul>
+            </article>
+        </section>
+    </main>
+
+    <div id="searchModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDescription" aria-hidden="true">
+        <div class="modal-content">
+            <button class="close" type="button" data-close-modal aria-label="고급검색 닫기">&times;</button>
+            <h2 id="modalTitle">고급검색</h2>
+            <p id="modalDescription">자료 구분, 발행 연도 등 세부 조건을 선택해 결과를 좁혀보세요.</p>
+
+            <form class="advanced-form">
+                <label for="advTitle">제목</label>
+                <input id="advTitle" type="text" placeholder="제목(부분일치)">
+
+                <label for="advAuthor">저자</label>
+                <input id="advAuthor" type="text" placeholder="저자명 입력">
+
+                <label for="advPublisher">발행자</label>
+                <input id="advPublisher" type="text" placeholder="발행기관 입력">
+
+                <label for="advType">자료 유형</label>
+                <select id="advType">
+                    <option value="">전체</option>
+                    <option value="book">단행본</option>
+                    <option value="serial">연속간행물</option>
+                    <option value="digital">디지털자료</option>
+                </select>
+
+                <label for="advYear">발행 연도</label>
+                <input id="advYear" type="text" placeholder="예: 2020-2024">
+
+                <div class="modal-buttons">
+                    <button type="reset" class="reset">초기화</button>
+                    <button type="submit" class="search">검색</button>
+                    <button type="button" class="close-btn" data-close-modal>닫기</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script th:src="@{/js/search.js}"></script>
 </body>
 </html>
