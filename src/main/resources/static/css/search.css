@@ -140,74 +140,6 @@
     transition: transform 0.2s ease;
 }
 
-.search-card__actions button:hover::after {
-    transform: translateX(4px);
-}
-
-.quick-services {
-    width: min(960px, 100%);
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(6px);
-    border-radius: var(--radius-xl);
-    box-shadow: 0 14px 40px rgba(15, 39, 98, 0.12);
-    padding: 22px 28px;
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
-    gap: 24px;
-}
-
-.quick-services strong {
-    font-size: 14px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--gray-500);
-}
-
-.quick-services__list {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: minmax(120px, 1fr);
-    gap: 18px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.quick-services__item {
-    background: #fff;
-    border-radius: var(--radius-lg);
-    border: 1px solid rgba(21, 49, 107, 0.08);
-    box-shadow: 0 10px 24px rgba(16, 37, 94, 0.08);
-    padding: 16px 12px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    align-items: center;
-    text-align: center;
-    font-size: 14px;
-    color: var(--gray-700);
-    font-weight: 600;
-}
-
-.quick-services__icon {
-    width: 52px;
-    height: 52px;
-    border-radius: 18px;
-    background: var(--indigo-50);
-    display: grid;
-    place-items: center;
-    font-size: 24px;
-    color: var(--blue-500);
-}
-
-.quick-services__page {
-    font-size: 14px;
-    color: var(--gray-500);
-    font-weight: 600;
-    justify-self: end;
-}
-
 @media (max-width: 960px) {
     .search-card {
         padding: 28px 24px;
@@ -221,30 +153,11 @@
     .search-submit {
         width: 100%;
     }
-
-    .quick-services {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
-
-    .quick-services__list {
-        grid-auto-flow: row;
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-        justify-items: center;
-    }
-
-    .quick-services__page {
-        justify-self: center;
-    }
 }
 
 @media (max-width: 600px) {
     .hero-headline p {
         font-size: 16px;
-    }
-
-    .quick-services__item {
-        width: 100%;
     }
 }
 
