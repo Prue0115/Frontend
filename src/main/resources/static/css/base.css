@@ -1,0 +1,122 @@
+:root {
+    color-scheme: light;
+    font-family: "Pretendard", "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --blue-900: #0b1f4b;
+    --blue-800: #15316b;
+    --blue-700: #26458e;
+    --blue-500: #3f64d6;
+    --blue-400: #5c7df0;
+    --blue-100: #e7edff;
+    --indigo-50: #f5f7ff;
+    --gray-900: #111827;
+    --gray-700: #4b5563;
+    --gray-500: #6b7280;
+    --gray-200: #e5e7eb;
+    --gray-100: #f3f4f6;
+    --accent-yellow: #ffe15a;
+    --surface: #ffffff;
+    --shadow-soft: 0 20px 60px rgba(15, 39, 98, 0.15);
+    --radius-xl: 28px;
+    --radius-lg: 22px;
+    --radius-md: 14px;
+    --radius-sm: 10px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #f2f5ff 0%, #ffffff 65%);
+    color: var(--gray-900);
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover,
+a:focus-visible {
+    color: var(--blue-500);
+}
+
+main {
+    padding: 40px 20px 96px;
+}
+
+.site-header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--gray-100);
+}
+
+.site-header__inner {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.brand-group {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    font-weight: 600;
+}
+
+.brand-group .anniversary {
+    display: grid;
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 18px;
+    background: radial-gradient(circle at 20% 20%, #ffd86d, #ff7b67);
+    font-size: 20px;
+    color: #2b1034;
+    font-weight: 700;
+}
+
+.brand-mark {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.brand-mark strong {
+    font-size: 18px;
+    color: var(--blue-900);
+}
+
+.brand-mark span {
+    font-size: 13px;
+    color: var(--gray-500);
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+@media (max-width: 768px) {
+    .site-header__inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .brand-group .anniversary {
+        width: 54px;
+        height: 54px;
+        font-size: 18px;
+    }
+}
