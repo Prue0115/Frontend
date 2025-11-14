@@ -2,90 +2,305 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>BookFront</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>BookFront | 국립중앙도서관 참고형 메인</title>
+    <link rel="stylesheet" th:href="@{/css/base.css}">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/hero-search.css}">
+    <link rel="stylesheet" th:href="@{/css/services.css}">
+    <link rel="stylesheet" th:href="@{/css/info-guides.css}">
+    <link rel="stylesheet" th:href="@{/css/digital-collection.css}">
+    <link rel="stylesheet" th:href="@{/css/stats.css}">
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" th:href="@{/css/theme.css}">
+    <link rel="stylesheet" th:href="@{/css/responsive.css}">
 </head>
 <body>
-<header>
-    <div class="logo">📚 BookFront</div>
-    <nav>
-        <ul>
-            <li><a href="#">회원가입</a></li>
-            <li><a href="#">로그인</a></li>
-            <li><a href="#">좌석 예약</a></li>
-        </ul>
-    </nav>
-</header>
-
-<main class="home-container">
-    <h2 class="slogan">메인 글</h2>
-
-    <div class="search-section">
-        <div class="search-bar-large">
-            <input type="text" placeholder="검색어를 입력해 주세요">
-            <button class="btn-icon">🌐</button>
-            <button class="btn-search">🔍</button>
-        </div>
-
-        <div class="advanced-link-left">
-            <a href="#" id="openModal">🔍 고급검색</a>
+    <div class="top-bar">
+        <div class="top-wrapper">
+            <ul class="top-links">
+                <li><a href="#">어린이도서관</a></li>
+                <li><a href="#">디지털도서관</a></li>
+                <li><a href="#">도서관 소개</a></li>
+                <li><a href="#">사이트맵</a></li>
+                <li><a href="#">English</a></li>
+            </ul>
+            <ul class="member-links">
+                <li><a href="#">회원가입</a></li>
+                <li><a href="#">로그인</a></li>
+            </ul>
         </div>
     </div>
 
-    <div class="notice-box">
-        <div class="notice-date">
-            <span class="icon">🕒</span>
-            <strong>11월 13일 (목)</strong>
+    <header class="global-header">
+        <div class="header-wrapper">
+            <div class="logo" aria-label="BookFront 메인으로 이동">📚 BookFront</div>
+            <nav aria-label="주요 서비스">
+                <ul class="main-nav">
+                    <li><a href="#search">자료검색</a></li>
+                    <li><a href="#collections">디지털컬렉션</a></li>
+                    <li><a href="#services">도서관 서비스</a></li>
+                    <li><a href="#notices">공지·소식</a></li>
+                    <li><a href="#guide">이용안내</a></li>
+                </ul>
+            </nav>
         </div>
-        <div class="notice-text">
-            테스트 중입니다. <span>09:00~계속 진행 중</span>
-            <small>(테스트 중입니다.)</small>
-        </div>
-        <div class="holiday">
-            <button>11월 개발중</button>
-            <span>13</span><span>24</span>
-        </div>
-    </div>
-</main>
+    </header>
 
-<footer>© 2025 BookFront. All rights reserved.</footer>
+    <main>
+        <section class="hero" id="search">
+            <div class="hero-inner">
+                <div class="hero-copy">
+                    <p class="badge">국립중앙도서관 스타일 안내</p>
+                    <h1>지식이 모이고 연결되는 문화 정보 허브</h1>
+                    <p class="subtitle">도서·연구·디지털 자료까지 한 번에 찾아보세요.</p>
+                </div>
 
-<!-- 🌗 테마 전환 버튼 -->
-<div class="theme-toggle">
-    <button id="lightMode">☀️</button>
-    <button id="systemMode">🖥</button>
-    <button id="darkMode">🌙</button>
-</div>
-
-<!-- 고급검색 모달 -->
-<div id="searchModal" class="modal">
-    <div class="modal-content">
-        <span class="close" id="closeModal">&times;</span>
-        <h2>고급검색</h2>
-        <p>도서, 논문, 고문헌 등을 세부 조건으로 검색할 수 있습니다.</p>
-
-        <form class="advanced-form">
-            <label>제목(부분일치)</label>
-            <input type="text">
-
-            <label>저자</label>
-            <input type="text">
-
-            <label>발행자</label>
-            <input type="text">
-
-            <label>키워드</label>
-            <input type="text">
-
-            <div class="modal-buttons">
-                <button type="reset" class="reset">초기화</button>
-                <button type="submit" class="search">검색</button>
-                <button type="button" id="closeModal2" class="close-btn">닫기</button>
+                <div class="search-panel" role="search">
+                    <div class="search-tabs" role="tablist" aria-label="검색 유형">
+                        <button type="button" class="search-tab active" role="tab" aria-selected="true" data-placeholder="도서, 논문, 멀티미디어를 통합 검색" data-label="통합검색">통합검색</button>
+                        <button type="button" class="search-tab" role="tab" aria-selected="false" data-placeholder="자료 제목 또는 저자를 입력" data-label="자료검색">자료검색</button>
+                        <button type="button" class="search-tab" role="tab" aria-selected="false" data-placeholder="디지털컬렉션 콘텐츠를 찾아보세요" data-label="디지털컬렉션">디지털컬렉션</button>
+                        <button type="button" class="search-tab" role="tab" aria-selected="false" data-placeholder="전시·교육 프로그램을 검색" data-label="문화행사">문화행사</button>
+                    </div>
+                    <form class="search-form" action="#" method="get">
+                        <label for="mainSearchInput" class="sr-only">검색어 입력</label>
+                        <input id="mainSearchInput" type="text" placeholder="도서, 논문, 멀티미디어를 통합 검색">
+                        <div class="search-actions">
+                            <button type="button" class="advanced-btn" id="openModal" aria-haspopup="dialog">고급검색</button>
+                            <button type="submit" class="search-submit">검색</button>
+                        </div>
+                    </form>
+                    <div class="search-help">
+                        <a href="#">전자도서관 이용안내</a>
+                        <a href="#">외국어 자료 찾기</a>
+                        <a href="#">오프라인 소장 정보</a>
+                    </div>
+                </div>
             </div>
-        </form>
-    </div>
-</div>
+        </section>
 
-<script th:src="@{/js/script.js}"></script>
+        <section class="quick-services" id="services">
+            <div class="section-heading">
+                <h2>주요 서비스 바로가기</h2>
+                <p>자주 이용하는 서비스를 한눈에 찾아보세요.</p>
+            </div>
+            <div class="service-grid">
+                <a class="service-card" href="#collections">
+                    <span class="icon" aria-hidden="true">💿</span>
+                    <strong>디지털 컬렉션</strong>
+                    <p>고문헌, 신문, 영상 등 디지털 자료 열람</p>
+                </a>
+                <a class="service-card" href="#guide">
+                    <span class="icon" aria-hidden="true">📖</span>
+                    <strong>연구자료 이용</strong>
+                    <p>주제별 연구 서비스와 맞춤형 컨설팅</p>
+                </a>
+                <a class="service-card" href="#notices">
+                    <span class="icon" aria-hidden="true">🗂️</span>
+                    <strong>발간자료</strong>
+                    <p>국립중앙도서관 발간 간행물 열람</p>
+                </a>
+                <a class="service-card" href="#events">
+                    <span class="icon" aria-hidden="true">🎓</span>
+                    <strong>문화·교육 프로그램</strong>
+                    <p>강연, 교육, 전시 및 체험 신청</p>
+                </a>
+            </div>
+        </section>
+
+        <section class="info-grid" id="notices">
+            <article class="info-card notice-card">
+                <header>
+                    <h3>공지사항</h3>
+                    <a href="#">전체보기</a>
+                </header>
+                <ul>
+                    <li>
+                        <time datetime="2024-11-20">2024.11.20</time>
+                        <a href="#">전자도서관 시스템 점검 안내</a>
+                    </li>
+                    <li>
+                        <time datetime="2024-11-15">2024.11.15</time>
+                        <a href="#">주제별 큐레이션 서비스 개편</a>
+                    </li>
+                    <li>
+                        <time datetime="2024-11-11">2024.11.11</time>
+                        <a href="#">문화행사 예약 방식 변경 안내</a>
+                    </li>
+                    <li>
+                        <time datetime="2024-11-03">2024.11.03</time>
+                        <a href="#">자료 열람실 운영시간 연장</a>
+                    </li>
+                </ul>
+            </article>
+
+            <article class="info-card highlight-card" id="events">
+                <header>
+                    <h3>주요 행사</h3>
+                    <div class="slider-controls" aria-hidden="true">
+                        <button type="button" class="slider-prev" aria-label="이전 행사">◀</button>
+                        <button type="button" class="slider-next" aria-label="다음 행사">▶</button>
+                    </div>
+                </header>
+                <ul class="highlight-list">
+                    <li class="highlight-item active">
+                        <span class="tag">전시</span>
+                        <strong>한글 특별전: 문자와 기록의 여정</strong>
+                        <p>12.01 - 12.31 / 본관 1층 전시실</p>
+                    </li>
+                    <li class="highlight-item">
+                        <span class="tag">강연</span>
+                        <strong>한국학 연구자를 위한 아카이빙 워크숍</strong>
+                        <p>12.12 / 디지털도서관 세미나실</p>
+                    </li>
+                    <li class="highlight-item">
+                        <span class="tag">교육</span>
+                        <strong>어린이 겨울 독서교실 참가자 모집</strong>
+                        <p>12.20 - 12.24 / 꿈나래교실</p>
+                    </li>
+                </ul>
+            </article>
+
+            <article class="info-card news-card" id="guide">
+                <header>
+                    <h3>이용자 가이드</h3>
+                    <a href="#">더 알아보기</a>
+                </header>
+                <div class="guide-grid">
+                    <a href="#" class="guide-item">
+                        <span class="icon">🧭</span>
+                        <div>
+                            <strong>처음 방문하셨나요?</strong>
+                            <p>회원증 발급부터 자료 열람까지 순서대로 안내합니다.</p>
+                        </div>
+                    </a>
+                    <a href="#" class="guide-item">
+                        <span class="icon">🕘</span>
+                        <div>
+                            <strong>이용시간 & 휴관일</strong>
+                            <p>평일·주말 운영시간과 특별 휴관일 정보를 확인하세요.</p>
+                        </div>
+                    </a>
+                    <a href="#" class="guide-item">
+                        <span class="icon">📝</span>
+                        <div>
+                            <strong>자료 기증 안내</strong>
+                            <p>도서 및 기록물 기증 절차와 문의처를 확인할 수 있습니다.</p>
+                        </div>
+                    </a>
+                </div>
+            </article>
+        </section>
+
+        <section class="digital-collection" id="collections">
+            <div class="section-heading">
+                <h2>디지털 컬렉션 하이라이트</h2>
+                <p>국가 지식유산을 고품질 디지털 자료로 제공합니다.</p>
+            </div>
+            <div class="collection-grid">
+                <article class="collection-item">
+                    <span class="category">고문헌</span>
+                    <h3>조선시대 관찬 자료 디지털 아카이브</h3>
+                    <p>희귀 고문헌을 원문 이미지와 해제 정보로 탐색할 수 있습니다.</p>
+                    <a href="#">바로가기</a>
+                </article>
+                <article class="collection-item">
+                    <span class="category">신문</span>
+                    <h3>근대 신문 컬렉션</h3>
+                    <p>1900년대 초부터 발간된 주요 신문을 년·월별로 열람하세요.</p>
+                    <a href="#">바로가기</a>
+                </article>
+                <article class="collection-item">
+                    <span class="category">멀티미디어</span>
+                    <h3>대한민국 영상 기록</h3>
+                    <p>국가 주요 행사의 영상과 음성 자료를 고해상도로 제공합니다.</p>
+                    <a href="#">바로가기</a>
+                </article>
+            </div>
+        </section>
+
+        <section class="library-stats" aria-label="도서관 주요 통계">
+            <div class="stat">
+                <strong>1,280만+</strong>
+                <span>소장 자료</span>
+            </div>
+            <div class="stat">
+                <strong>1,500+</strong>
+                <span>디지털 컬렉션</span>
+            </div>
+            <div class="stat">
+                <strong>320만명</strong>
+                <span>연간 이용자</span>
+            </div>
+            <div class="stat">
+                <strong>365일</strong>
+                <span>온라인 서비스</span>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div>
+                <h4>BookFront</h4>
+                <p>국립중앙도서관의 디자인과 서비스 구성을 참고해 제작한 예시 화면입니다.</p>
+            </div>
+            <div>
+                <h4>고객지원</h4>
+                <ul>
+                    <li><a href="#">문의하기</a></li>
+                    <li><a href="#">자주 묻는 질문</a></li>
+                    <li><a href="#">위치 및 교통 안내</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>정책</h4>
+                <ul>
+                    <li><a href="#">이용약관</a></li>
+                    <li><a href="#">개인정보처리방침</a></li>
+                    <li><a href="#">저작권 정책</a></li>
+                </ul>
+            </div>
+        </div>
+        <p class="footer-copy">© 2025 BookFront. All rights reserved.</p>
+    </footer>
+
+    <div class="theme-toggle" aria-label="테마 전환">
+        <button id="lightMode" aria-label="라이트 모드">☀️</button>
+        <button id="systemMode" aria-label="시스템 모드">🖥</button>
+        <button id="darkMode" aria-label="다크 모드">🌙</button>
+    </div>
+
+    <div id="searchModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDescription">
+        <div class="modal-content">
+            <button class="close" id="closeModal" aria-label="고급검색 닫기">&times;</button>
+            <h2 id="modalTitle">고급검색</h2>
+            <p id="modalDescription">도서, 논문, 고문헌 등을 세부 조건으로 검색할 수 있습니다.</p>
+
+            <form class="advanced-form">
+                <label for="advTitle">제목</label>
+                <input id="advTitle" type="text" placeholder="제목(부분일치)">
+
+                <label for="advAuthor">저자</label>
+                <input id="advAuthor" type="text" placeholder="저자명 입력">
+
+                <label for="advPublisher">발행자</label>
+                <input id="advPublisher" type="text" placeholder="발행기관 입력">
+
+                <label for="advKeyword">키워드</label>
+                <input id="advKeyword" type="text" placeholder="키워드 입력">
+
+                <div class="modal-buttons">
+                    <button type="reset" class="reset">초기화</button>
+                    <button type="submit" class="search">검색</button>
+                    <button type="button" id="closeModal2" class="close-btn">닫기</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script th:src="@{/js/search.js}"></script>
+    <script th:src="@{/js/highlight-slider.js}"></script>
+    <script th:src="@{/js/theme.js}"></script>
 </body>
 </html>
