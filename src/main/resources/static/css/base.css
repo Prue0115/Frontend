@@ -59,7 +59,6 @@ main {
     padding: 18px 20px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     gap: 32px;
 }
 
@@ -96,18 +95,6 @@ main {
 .brand-mark span {
     font-size: 13px;
     color: var(--gray-500);
-}
-
-.utility-links {
-    display: flex;
-    align-items: center;
-    gap: 22px;
-    font-size: 14px;
-    color: var(--gray-700);
-}
-
-.utility-links a {
-    font-weight: 600;
 }
 
 .sr-only {
