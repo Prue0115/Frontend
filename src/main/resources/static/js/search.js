@@ -1,55 +1,42 @@
-// -----------------------------
-// 고급검색 모달
-// -----------------------------
 const modal = document.getElementById("searchModal");
 const openModalBtn = document.getElementById("openModal");
-const closeModalBtn = document.getElementById("closeModal");
-const closeModalBtn2 = document.getElementById("closeModal2");
+const closeButtons = document.querySelectorAll("[data-close-modal]");
+const firstField = document.getElementById("advTitle");
+
+const setModalVisibility = (show) => {
+    if (!modal) {
+        return;
+    }
+
+    modal.setAttribute("aria-hidden", show ? "false" : "true");
+    modal.style.display = show ? "block" : "none";
+
+    if (show && firstField) {
+        window.setTimeout(() => firstField.focus(), 50);
+    }
+};
 
 if (openModalBtn && modal) {
     openModalBtn.addEventListener("click", (event) => {
         event.preventDefault();
-        modal.style.display = "block";
+        setModalVisibility(true);
     });
 }
 
-[closeModalBtn, closeModalBtn2].forEach((btn) => {
-    if (btn && modal) {
-        btn.addEventListener("click", () => {
-            modal.style.display = "none";
-        });
-    }
+closeButtons.forEach((btn) => {
+    btn.addEventListener("click", () => setModalVisibility(false));
 });
 
 if (modal) {
-    window.addEventListener("click", (event) => {
+    modal.addEventListener("click", (event) => {
         if (event.target === modal) {
-            modal.style.display = "none";
+            setModalVisibility(false);
         }
     });
-}
 
-// -----------------------------
-// 검색 탭 전환
-// -----------------------------
-const searchTabs = document.querySelectorAll(".search-tab");
-const searchInput = document.getElementById("mainSearchInput");
-
-if (searchTabs.length > 0 && searchInput) {
-    searchTabs.forEach((tab) => {
-        tab.addEventListener("click", () => {
-            searchTabs.forEach((button) => {
-                button.classList.remove("active");
-                button.setAttribute("aria-selected", "false");
-            });
-
-            tab.classList.add("active");
-            tab.setAttribute("aria-selected", "true");
-
-            const placeholder = tab.dataset.placeholder;
-            if (placeholder) {
-                searchInput.placeholder = placeholder;
-            }
-        });
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && modal.getAttribute("aria-hidden") === "false") {
+            setModalVisibility(false);
+        }
     });
 }

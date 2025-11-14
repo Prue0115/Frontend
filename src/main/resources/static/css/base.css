@@ -23,19 +23,116 @@ body {
     background-color: var(--color-bg);
     color: var(--color-text);
     line-height: 1.6;
-    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-img {
-    max-width: 100%;
-    display: block;
+a {
+    color: inherit;
+}
+
+a:hover,
+a:focus-visible {
+    color: var(--color-secondary);
 }
 
 main {
+    padding: 64px 20px 96px;
     display: flex;
     flex-direction: column;
-    gap: 72px;
-    padding: 70px 20px 90px;
+    gap: 64px;
+}
+
+.top-bar {
+    background: #0d2b64;
+    color: #d9e3ff;
+    font-size: 14px;
+}
+
+.top-wrapper {
+    max-width: 1040px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 20px;
+    gap: 16px;
+}
+
+.top-links,
+.member-links {
+    display: flex;
+    gap: 18px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.top-links a,
+.member-links a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.top-links a:hover,
+.member-links a:hover {
+    text-decoration: underline;
+}
+
+.global-header {
+    background: var(--color-surface);
+    box-shadow: 0 2px 12px rgba(17, 33, 68, 0.08);
+}
+
+.header-wrapper {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.main-nav {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: var(--color-text);
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 6px;
+}
+
+.main-nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-secondary), var(--color-accent));
+    transition: width 0.25s ease;
+    border-radius: 999px;
+}
+
+.main-nav a:hover::after,
+.main-nav a:focus-visible::after {
+    width: 100%;
 }
 
 .section-heading {
